@@ -32,8 +32,8 @@ requirements:
 tests:
   - package_contents:
       files:
-        - ${{ "Library/" if win else "" }}lib/cetmodules/cmake/cetmodulesConfig.cmake
-        - ${{ "Library/" if win else "" }}lib/cetmodules/cmake/cetmodulesConfigVersion.cmake
+        - ${{ "Library/" if win else "" }}share/cetmodules/cmake/cetmodulesConfig.cmake
+        - ${{ "Library/" if win else "" }}share/cetmodules/cmake/cetmodulesConfigVersion.cmake
         - ${{ "Library/" if win else "" }}share/cetmodules/Modules/CetCMakeEnv.cmake
         - ${{ "Library/" if win else "" }}share/cetmodules/Modules/CetCMakeUtils.cmake
         - ${{ "Library/" if win else "" }}share/cetmodules/Modules/CetCMakeConfig.cmake
