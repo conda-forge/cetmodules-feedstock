@@ -20,6 +20,8 @@ requirements:
   build:
     - cmake
     - ninja
+    - if: unix
+      then: sed
   run:
     - if: unix
       then:
