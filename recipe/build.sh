@@ -1,4 +1,10 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
+
+set -x
+set -e
+set -u
+set -o pipefail
+
 cmake -S ${SRC_DIR} -B build -G Ninja \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DCMAKE_INSTALL_LIBEXECDIR=libexec/cetmodules \
