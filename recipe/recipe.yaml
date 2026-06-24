@@ -20,31 +20,25 @@ requirements:
   build:
     - cmake
     - ninja
-    - if: unix
-      then: sed
+    - sed
   run:
-    - if: unix
-      then:
-        - bash
-        - perl
-        - __unix
-      else:
-        - __win
+    - bash
+    - perl
+    - python
+    - __unix
 
 tests:
   - package_contents:
       files:
-        - ${{ "Library/" if win else "" }}share/cetmodules/cmake/cetmodulesConfig.cmake
-        - ${{ "Library/" if win else "" }}share/cetmodules/cmake/cetmodulesConfigVersion.cmake
-        - ${{ "Library/" if win else "" }}share/cetmodules/Modules/CetCMakeEnv.cmake
-        - ${{ "Library/" if win else "" }}share/cetmodules/Modules/CetCMakeUtils.cmake
-        - ${{ "Library/" if win else "" }}share/cetmodules/Modules/CetCMakeConfig.cmake
-        - ${{ "Library/" if win else "" }}share/cetmodules/Modules/CetMake.cmake
-        - ${{ "Library/" if win else "" }}libexec/cetmodules/checkClassVersion
-        - ${{ "Library/" if win else "" }}libexec/cetmodules/filter-program-options
-        - if: unix
-          then:
-            - libexec/cetmodules/make_bash_completions
+        - share/cetmodules/cmake/cetmodulesConfig.cmake
+        - share/cetmodules/cmake/cetmodulesConfigVersion.cmake
+        - share/cetmodules/Modules/CetCMakeEnv.cmake
+        - share/cetmodules/Modules/CetCMakeUtils.cmake
+        - share/cetmodules/Modules/CetCMakeConfig.cmake
+        - share/cetmodules/Modules/CetMake.cmake
+        - libexec/cetmodules/checkClassVersion
+        - libexec/cetmodules/filter-program-options
+        - libexec/cetmodules/make_bash_completions
 
 about:
   homepage: https://github.com/FNALssi/cetmodules

@@ -1,8 +1,6 @@
 conda_build_tool: rattler-build
 conda_install_tool: pixi
-noarch_platforms:
-- linux_64
-- win_64
+noarch_platforms: linux_64
 github:
   branch_name: main
   tooling_branch_name: main
