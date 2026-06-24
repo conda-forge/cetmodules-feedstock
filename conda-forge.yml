@@ -8,3 +8,6 @@ github:
 conda_build:
   error_overlinking: true
 conda_forge_output_validation: true
+bot:
+  abi_migration_branches:
+    - "v3.24.x"
