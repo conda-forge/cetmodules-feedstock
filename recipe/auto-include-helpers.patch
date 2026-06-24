@@ -3,10 +3,14 @@ Subject: Auto-include core helpers in cetmodulesConfig.cmake
 
 Consumers of cetmodules (e.g. phlex, art, larsoft) call
 find_package(cetmodules) expecting the standard helper modules
-(CetCMakeEnv, CetCMakeUtils, CetCMakeConfig, CetMake,
-CetProvideDependency) to be available immediately. The default
-cetmodulesConfig.cmake only prepends Modules/ to CMAKE_MODULE_PATH,
-which forces every consumer to add the include() calls explicitly.
+(CetCMakeEnv, CetCMakeUtils, CetCMakeConfig, CetMake) to be available
+immediately. The default cetmodulesConfig.cmake only prepends Modules/
+to CMAKE_MODULE_PATH, which forces every consumer to add the include()
+calls explicitly.
+
+(CetProvideDependency, included by this hook in cetmodules 4.x, does not
+exist in 3.24.01, so it is omitted here — including a non-existent module
+would make every downstream find_package(cetmodules) fail.)
 
 Use the existing CONFIG_POST_TARGETS hook to inject the includes at
 the end of the generated config, so downstream code can rely on
@@ -23,8 +27,7 @@ cet_cmake_env() and friends without further boilerplate.
    )
 --- /dev/null
 +++ b/config/cetmodules-auto-include-helpers.cmake
-@@ -0,0 +1,5 @@
-+include(CetProvideDependency)
+@@ -0,0 +1,4 @@
 +include(CetCMakeEnv)
 +include(CetCMakeUtils)
 +include(CetCMakeConfig)
