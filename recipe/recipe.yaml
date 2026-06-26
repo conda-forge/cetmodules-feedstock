@@ -24,7 +24,10 @@ requirements:
   run:
     - bash
     - perl
-    - python
+    # python >=3.9: checkClassVersion is a Python 3 (PyROOT) script. Pin away from
+    # the ancient `python 2.0` stub package, which an unconstrained `python` can
+    # resolve to and which then fails binary relocation in downstream host envs.
+    - python >=3.9
     - __unix
 
 tests:
