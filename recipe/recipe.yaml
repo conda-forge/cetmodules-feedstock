@@ -1,5 +1,5 @@
 context:
-  version: "3.24.01"
+  version: "3.25.00"
 
 package:
   name: cetmodules
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/FNALssi/cetmodules/archive/refs/tags/${{ version }}.tar.gz
-  sha256: 6ef8b522b02298a787a318cda898deedc250cdd336dc3168fad934ef607b5916
+  sha256: 9574d9f8e5757d79c11d6fb3b95c3227aa0028960733715c3e6b6b25a51ff5c5
   patches:
     - auto-include-helpers.patch
     - namespace-install-paths.patch

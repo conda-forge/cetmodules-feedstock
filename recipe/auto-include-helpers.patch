@@ -9,7 +9,7 @@ to CMAKE_MODULE_PATH, which forces every consumer to add the include()
 calls explicitly.
 
 (CetProvideDependency, included by this hook in cetmodules 4.x, does not
-exist in 3.24.01, so it is omitted here — including a non-existent module
+exist in 3.25.00, so it is omitted here — including a non-existent module
 would make every downstream find_package(cetmodules) fail.)
 
 Use the existing CONFIG_POST_TARGETS hook to inject the includes at
@@ -18,13 +18,13 @@ cet_cmake_env() and friends without further boilerplate.
 
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -100,4 +100,6 @@ cet_cmake_config(
+@@ -97,4 +97,6 @@ cet_cmake_config(EXTRA_TARGET_VARS CET_EXEC_TEST
    config/${PROJECT_NAME}-CMP0096.cmake
    CONFIG_POST_VARS
    config/${PROJECT_NAME}-no-in-tree-source-modules.cmake
 +  CONFIG_POST_TARGETS
 +  config/${PROJECT_NAME}-auto-include-helpers.cmake
-   )
+ )
 --- /dev/null
 +++ b/config/cetmodules-auto-include-helpers.cmake
 @@ -0,0 +1,4 @@
